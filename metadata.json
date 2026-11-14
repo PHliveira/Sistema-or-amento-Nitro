@@ -1,0 +1,6 @@
+{
+  "name": "Nitro Orçamentos | Confecção Têxtil & Uniformes",
+  "description": "Sistema de precificação e geração de orçamentos para confecção têxtil com visão interna de custos, visão externa para vendedores/clientes, motores de estamparia e integração com Google Sheets.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

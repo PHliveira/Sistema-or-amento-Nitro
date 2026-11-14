@@ -1,0 +1,339 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-nitro-primaria: var(--nitro-primaria);
+  --color-nitro-primaria-hover: var(--nitro-primaria-hover);
+  --color-nitro-azul: var(--nitro-azul);
+  --color-nitro-azul-hover: var(--nitro-azul-hover);
+  --color-nitro-vermelho: var(--nitro-vermelho);
+  --color-nitro-vermelho-hover: var(--nitro-vermelho-hover);
+  --color-bg-fundo: var(--bg-fundo);
+  --color-bg-superficie: var(--bg-superficie);
+  --color-bg-elevado: var(--bg-elevado);
+  --color-bg-input: var(--bg-input);
+  --color-borda-sutil: var(--borda-sutil);
+  --color-borda-hover: var(--borda-hover);
+  --color-texto-primario: var(--texto-primario);
+  --color-texto-secundario: var(--texto-secundario);
+  --color-texto-mutado: var(--texto-mutado);
+  --color-sucesso: var(--sucesso);
+  --color-alerta: var(--alerta);
+  --color-perigo: var(--perigo);
+}
+
+:root {
+  /* PALETA NITRO - MODO CLARO COM ALTO CONTRASTE */
+  --nitro-primaria: #ff8300;
+  --nitro-primaria-hover: #e07300;
+  --nitro-primaria-active: #c76500;
+  --nitro-primaria-glow: rgba(255, 131, 0, 0.30);
+
+  --nitro-azul: #004da8;
+  --nitro-azul-hover: #003d85;
+  --nitro-azul-bg: rgba(0, 77, 168, 0.12);
+
+  --nitro-vermelho: #e82125;
+  --nitro-vermelho-hover: #c9181c;
+  --nitro-vermelho-bg: rgba(232, 33, 37, 0.12);
+
+  /* Fundo da tela ligeiramente mais escuro para destacar cards brancos */
+  --bg-fundo: #ebedf2;
+  --bg-superficie: #ffffff;
+  --bg-elevado: #f1f4f9;
+  --bg-input: #ffffff;
+
+  /* Bordas nítidas de alto contraste (Slate-300 / Slate-400) */
+  --borda-sutil: #cbd5e1;
+  --borda-hover: #94a3b8;
+  --borda-foco: #ff8300;
+
+  /* Textos nítidos com excelente legibilidade (Slate-900 / Slate-700) */
+  --texto-primario: #090d16;
+  --texto-secundario: #334155;
+  --texto-mutado: #64748b;
+
+  --sucesso: #15803d;
+  --sucesso-bg: rgba(21, 128, 61, 0.15);
+  --alerta: #d97706;
+  --alerta-bg: rgba(217, 119, 6, 0.15);
+  --perigo: #dc2626;
+  --perigo-bg: rgba(220, 38, 38, 0.12);
+}
+
+.dark {
+  /* PALETA NITRO - MODO ESCURO COM ALTO CONTRASTE */
+  --nitro-primaria: #ff8300;
+  --nitro-primaria-hover: #e07300;
+  --nitro-primaria-active: #c76500;
+  --nitro-primaria-glow: rgba(255, 131, 0, 0.40);
+
+  --nitro-azul: #004da8;
+  --nitro-azul-hover: #1a65c2;
+  --nitro-azul-bg: rgba(0, 77, 168, 0.24);
+
+  --nitro-vermelho: #e82125;
+  --nitro-vermelho-hover: #ff3b3f;
+  --nitro-vermelho-bg: rgba(232, 33, 37, 0.22);
+
+  /* Fundo preto profundo para destacar os cards slate escuro */
+  --bg-fundo: #090a0f;
+  --bg-superficie: #141824;
+  --bg-elevado: #1d2232;
+  --bg-input: #0c0e14;
+
+  /* Bordas nítidas de separação no tema escuro (Slate-700 / Slate-600) */
+  --borda-sutil: #2d354a;
+  --borda-hover: #4e5b7a;
+  --borda-foco: #ff8300;
+
+  /* Textos claros de alta visibilidade */
+  --texto-primario: #ffffff;
+  --texto-secundario: #cbd5e1;
+  --texto-mutado: #94a3b8;
+
+  --sucesso: #22c55e;
+  --sucesso-bg: rgba(34, 197, 94, 0.20);
+  --alerta: #ff8300;
+  --alerta-bg: rgba(255, 131, 0, 0.20);
+  --perigo: #e82125;
+  --perigo-bg: rgba(232, 33, 37, 0.22);
+}
+
+@layer base {
+  body {
+    background-color: var(--bg-fundo);
+    color: var(--texto-primario);
+    font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  }
+  
+  .font-mono-numbers {
+    font-family: var(--font-mono), monospace;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Classes utilitárias com as variáveis CSS */
+.bg-fundo {
+  background-color: var(--bg-fundo);
+}
+
+.bg-superficie {
+  background-color: var(--bg-superficie);
+}
+
+.bg-elevado {
+  background-color: var(--bg-elevado);
+}
+
+.bg-input {
+  background-color: var(--bg-input);
+}
+
+.border-sutil {
+  border-color: var(--borda-sutil);
+}
+
+.border-hover:hover {
+  border-color: var(--borda-hover);
+}
+
+.text-primario {
+  color: var(--texto-primario);
+}
+
+.text-secundario {
+  color: var(--texto-secundario);
+}
+
+.text-mutado {
+  color: var(--texto-mutado);
+}
+
+/* Botões com transições suaves e estados de hover */
+.btn-nitro-primary {
+  background-color: var(--nitro-primaria);
+  color: #ffffff;
+  font-weight: 700;
+  border-radius: 0.75rem;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px 0 var(--nitro-primaria-glow);
+}
+
+.btn-nitro-primary:hover {
+  background-color: var(--nitro-primaria-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px 0 rgba(255, 131, 0, 0.40);
+}
+
+.btn-nitro-primary:active {
+  background-color: var(--nitro-primaria-active);
+  transform: translateY(0);
+}
+
+.btn-nitro-secondary {
+  background-color: var(--nitro-azul);
+  color: #ffffff;
+  font-weight: 700;
+  border-radius: 0.75rem;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-nitro-secondary:hover {
+  background-color: var(--nitro-azul-hover);
+  transform: translateY(-1px);
+}
+
+.btn-nitro-danger {
+  background-color: var(--nitro-vermelho);
+  color: #ffffff;
+  font-weight: 700;
+  border-radius: 0.75rem;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-nitro-danger:hover {
+  background-color: var(--nitro-vermelho-hover);
+  transform: translateY(-1px);
+}
+
+.card-nitro {
+  background-color: var(--bg-superficie);
+  border: 1px solid var(--borda-sutil);
+  border-radius: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.card-nitro:hover {
+  border-color: var(--borda-hover);
+}
+
+@media print {
+  @page {
+    margin: 8mm 10mm;
+    size: A4 portrait;
+  }
+
+  /* Garante fundo branco e contraste no documento impresso */
+  html, body {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    font-size: 10pt;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  .no-print {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  /* Desfaz posicionamento fixo e cortes do modal durante a impressão */
+  .pdf-print-backdrop,
+  .pdf-print-dialog,
+  .pdf-print-scroll {
+    position: static !important;
+    inset: auto !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    background: #ffffff !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  #printable-quote-sheet {
+    display: block !important;
+    position: static !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 794px !important;
+    margin: 0 auto !important;
+    padding: 4mm !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+  }
+
+  #printable-quote-sheet .pdf-header-row {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+  }
+
+  #printable-quote-sheet .pdf-logo-img {
+    max-height: 56px !important;
+    max-width: 180px !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important;
+    display: block !important;
+  }
+
+  #printable-quote-sheet .pdf-client-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+  }
+
+  #printable-quote-sheet .pdf-col-span-full {
+    grid-column: 1 / -1 !important;
+  }
+
+  #printable-quote-sheet .pdf-mockups-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+  }
+
+  #printable-quote-sheet .pdf-terms-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+  }
+
+  #printable-quote-sheet .pdf-table-wrap {
+    overflow: visible !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  #printable-quote-sheet .pdf-table {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  #printable-quote-sheet .pdf-footer-row {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 16px !important;
+  }
+
+  #printable-quote-sheet tr {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Preserva cores exatas de fundos, bordas e textos */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
